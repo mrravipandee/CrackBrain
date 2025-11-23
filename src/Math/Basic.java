@@ -2,6 +2,19 @@ package Math;
 
 public class Basic {
 
+    // 7. GCD -
+
+
+    // 6. Print all divisions
+    static void allDivision(int num) {
+
+        for (int i = 1; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) { // 36 % 1 = 0, 36 % 2 = 0 ...
+                System.out.println(i);
+            }
+        }
+    }
+
     // 5. Check for Prime
     static boolean isPrime(int num) {
         // Prime numbers start from 2 (0 and 1 are not prime)
@@ -76,6 +89,6 @@ public class Basic {
     }
 
     public static void main(String[] args) {
-        armstrong(153);
+        allDivision(36);
     }
 }
