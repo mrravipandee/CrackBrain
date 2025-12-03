@@ -4,6 +4,58 @@ import java.util.Arrays;
 
 public class Basic {
 
+    // 6. sort colors using 3 pointers (dutch flag algo)
+    static void sortColorDutch(int[] nums) {
+        int n = nums.length;
+        int low = 0, mid = 0, hi = n - 1;
+
+        while (mid <= hi) {
+            if (nums[mid] == 0) {
+                swapArr(nums, low, mid);
+                low++;
+                mid++;
+            }
+            else if (nums[mid] == 1) mid++;
+            else {
+                // if nums[mid] value is 2
+                swapArr(nums, mid, hi);
+                hi--;
+            }
+        }
+
+        System.out.println("Sorted Array: "+Arrays.toString(nums));
+    }
+
+    public static void swapArr(int[] arr, int from, int to) {
+        int temp = arr[from];
+        arr[from] = arr[to];
+        arr[to] = temp;
+    }
+
+    // 5. sort colors
+    static void sortColor(int[] nums) {
+        int n = nums.length;
+
+        int zero = 0, one = 0, two = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) zero++;
+            else if (nums[i] == 1) one++;
+            else two++;
+        }
+        int index  = 0; // track index;
+
+        while (zero-- > 0) {
+            nums[index++] = 0;
+        }
+        while (one-- > 0) {
+            nums[index++] = 1;
+        }
+        while (two-- > 0) {
+            nums[index++] = 2;
+        }
+    }
+
     // 4. sort the array of 0's and 1's
     static void sort0and1(int[] arr) {
         int start = 0;
@@ -95,8 +147,8 @@ public class Basic {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,0,0,1,0,1,0,0,1,0};
-        sort0and1(arr);
+        int[] arr = {0,1,2,0,1,2,1,2,0,0};
+        sortColorDutch(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
