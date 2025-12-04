@@ -4,6 +4,53 @@ import java.util.Arrays;
 
 public class Basic {
 
+    // 7. merge two sorted array in single array
+    static void mergeSort3pointer() {
+        int[] a = {1,3,4,7}, b = {2,5,6,8};
+        int n = a.length + b.length;
+        int[] c = new int[n];
+
+        // pointers
+        int i = 0, j = 0, k = 0;
+
+        while (i < a.length && j < b.length) {
+            if (a[i] < b[j]) {
+                c[k] = a[i];
+                i++;
+            } else {
+                c[k] = b[j];
+                j++;
+            }
+            k++;
+        }
+
+        // remaining copy from a
+        while (i < a.length) {
+            c[k++] = a[i++];
+        }
+        // remaining copy from b
+        while (j < b.length) {
+            c[k++] = b[j++];
+        }
+
+        System.out.println(Arrays.toString(c));
+
+        // copy all element from a array
+//        while (i < a.length) {
+//            c[k] = a[i];
+//            i++;
+//            k++;
+//        }
+
+        // copy all element from b array
+//        while (j < b.length) {
+//            c[k] = b[j];
+//            j++;
+//            k++;
+//        }
+
+    }
+
     // 6. sort colors using 3 pointers (dutch flag algo)
     static void sortColorDutch(int[] nums) {
         int n = nums.length;
@@ -148,7 +195,6 @@ public class Basic {
 
     public static void main(String[] args) {
         int[] arr = {0,1,2,0,1,2,1,2,0,0};
-        sortColorDutch(arr);
-        System.out.println(Arrays.toString(arr));
+        mergeSort3pointer();
     }
 }
