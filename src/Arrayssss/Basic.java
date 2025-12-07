@@ -4,6 +4,35 @@ import java.util.Arrays;
 
 public class Basic {
 
+    // 8. Next greatest element
+    static  void greatestElement(int[] nums) {
+        int[] ans = new int [nums.length];
+        int n = nums.length;
+
+
+        int k = 0;
+        ans[nums.length - 1] = -1;
+
+        // Method 1: brute force approach
+//        for (int i = 0; i < nums.length - 1; i++) {
+//            int max = Integer.MIN_VALUE;
+//
+//            for (int j = i+1; j < nums.length; j++) {
+//                max = Math.max(max, nums[j]);
+//            }
+//            ans[i] = max;
+//        }
+
+        // Method 2: Optimised
+        int nge = nums[n-1];
+        for (int i = n-2; i >= 0; i--) {
+            ans[i] = nge;
+            nge = Math.max(nge, nums[i]);
+        }
+
+        System.out.println(Arrays.toString(ans));
+    }
+
     // 7. merge two sorted array in single array
     static void mergeSort3pointer() {
         int[] a = {1,3,4,7}, b = {2,5,6,8};
@@ -177,7 +206,7 @@ public class Basic {
         System.out.println(Arrays.toString(arr));
     }
 
-    // two sum
+    // 1. two sum
     static int[] twoSum(int[] arr, int x) {
         int n = arr.length;
 //        int res[] = new int[2];
@@ -195,6 +224,8 @@ public class Basic {
 
     public static void main(String[] args) {
         int[] arr = {0,1,2,0,1,2,1,2,0,0};
-        mergeSort3pointer();
+        int[] arr2 = {12, 8, 41, 37, 2, 49, 16, 28, 21};
+
+        greatestElement(arr2);
     }
 }

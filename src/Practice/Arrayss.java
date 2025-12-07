@@ -20,8 +20,6 @@ public class Arrayss {
         } else {
             System.out.println("Its not sorted");
         }
-
-
     }
 
     // 3. Check if the array is sorted
@@ -31,11 +29,10 @@ public class Arrayss {
                 return false;
             }
         }
-
         return true;
     }
 
-    // 2. Second Largest Element in an Array without sorting
+    // 2. Second-Largest Element in an Array without sorting
     static int secondLargest(int[] nums) {
         int max = Integer.MIN_VALUE;
         int maxSecond = Integer.MIN_VALUE;
