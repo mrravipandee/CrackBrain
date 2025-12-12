@@ -5,7 +5,137 @@ import java.util.Scanner;
 
 public class Arrays2D {
 
-    // 4. index 210
+    static void rotate90deg(int[][] arr) {
+
+        int m = arr.length, n = arr[0].length;
+
+        print2D(arr);
+
+        // transpose matrix first then reverse the rows
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < i; j++) {
+                swap(arr, i, j);
+            }
+        }
+
+        print2D(arr);
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < i; j++) {
+                reverse(arr);
+            }
+        }
+
+        print2D(arr);
+
+    }
+
+    // 6. transpose 3by3 matrix on the same array
+    static void transpose3by3(int[][] arr) {
+
+        int m = arr.length, n = arr[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < i; j++) {
+                swap(arr, i, j);
+            }
+        }
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void print2D(int[][] arr) {
+        int m = arr.length, n = arr[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    static void swap(int[][] arr, int i, int j) {
+        int temp = arr[i][j];
+        arr[i][j] = arr[j][i];
+        arr[j][i] = temp;
+    }
+
+    static void reverse(int[][] arr) {
+        int m = arr.length;
+        int n = arr[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int l = 0, r = m - 1;
+
+                while (l < r) {
+                    int temp = arr[i][l];
+                    arr[i][l] = arr[i][r];
+                    arr[i][r] = temp;
+                    l++;
+                    r--;
+                }
+            }
+        }
+    }
+
+    // 5. transpose of array
+    static void transpose(int[][] arr1) {
+
+        // leng of cols and rows
+        int n = arr1.length, m = arr1[0].length;
+        // new array to store transpose
+        int[][] arrTrans = new int[m][n];
+
+        for (int j = 0; j < m; j++) {
+            for (int i = 0; i < n; i++) {
+                // System.out.print(arr1[i][j]+" ");
+                arrTrans[j][i] = arr1[i][j];
+            }
+            // System.out.println();
+        }
+
+        for (int[] oneD: arrTrans) {
+            for (int ele: oneD) {
+                System.out.print(ele+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    // 4. add 2 matrix
+    static void additionMatrix(int[][] mat1, int[][] mat2) {
+        int[][] res = new int[mat1.length][mat2[0].length];
+
+        for (int i = 0; i < mat1.length; i++) {
+            for (int j = 0; j < mat2[0].length; j++) {
+                res[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+
+        // print res matrix
+        for(int[] oneD: res) {
+            for(int ele: oneD) {
+                System.out.print(ele+" ");
+            }
+            System.out.println();
+        }
+    }
 
     // 3. some of all elements
     static void sumElements(int[][] arr2d) {
@@ -94,7 +224,8 @@ public class Arrays2D {
     }
 
     public static void main(String[] args) {
-        int[][] arr2d = {{1,12},{3,4},{5,6}};
-        sumElements(arr2d);
+        int[][] arr2d = {{1,2,7},{3,4,8},{5,6,9}};
+        int[][] arr2d2 = {{1,12},{3,4},{5,6}};
+        rotate90deg(arr2d);
     }
 }

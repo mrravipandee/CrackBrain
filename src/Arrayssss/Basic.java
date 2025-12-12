@@ -4,6 +4,25 @@ import java.util.Arrays;
 
 public class Basic {
 
+
+
+    // 268. missing number from array
+    static int missingNumber(int[] nums) {
+
+        // find total sum then sum of number then subtract it return which one is missing
+        int n = nums.length;
+        int total = n * (n + 1) / 2;
+
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+        }
+
+        return total - sum;
+
+        // time is O(n)
+    }
+
     // 8. Next greatest element
     static  void greatestElement(int[] nums) {
         int[] ans = new int [nums.length];
@@ -225,7 +244,8 @@ public class Basic {
     public static void main(String[] args) {
         int[] arr = {0,1,2,0,1,2,1,2,0,0};
         int[] arr2 = {12, 8, 41, 37, 2, 49, 16, 28, 21};
+        int[] nums = {9,6,4,2,3,5,7,0,1};
 
-        greatestElement(arr2);
+        System.out.println(missingNumber(nums));
     }
 }
