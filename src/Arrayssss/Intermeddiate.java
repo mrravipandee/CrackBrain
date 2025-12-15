@@ -1,8 +1,46 @@
 package Arrayssss;
 
 public class Intermeddiate {
+
+    // print matrix in spiral form
+    static void spiralForm(int[][] arr) {
+        int m = arr.length, n = arr[0].length;
+        int minRow = 0, maxRow = m-1;
+        int minCol = 0, maxCol = n-1;
+
+        while (minRow <= maxRow && minCol <= maxCol) {
+            // left to right
+            for (int j = minCol; j <= maxCol; j++) {
+                System.out.print(arr[minRow][j]+" ");
+            }
+            minRow++;
+
+            // top to bottom
+            for (int i = minRow; i <= maxRow; i++) {
+                System.out.print(arr[i][maxCol]+" ");
+            }
+            maxCol--;
+
+            // right to left
+            if (minRow <= maxRow) {
+                for (int j = maxCol; j >= minCol; j--) {
+                    System.out.print(arr[maxRow][j] + " ");
+                }
+                maxRow--;
+            }
+
+            // bottom to up
+            if (minCol <= maxCol) {
+                for (int i = maxRow; i >= minRow; i--) {
+                    System.out.print(arr[i][minCol] + " ");
+                }
+                minCol++;
+            }
+        }
+
+    }
     
-    // ware-form for cols
+    // wave-form for cols
     static void wareFormCols(int[][] arrs) {
         int m = arrs.length, n = arrs[0].length;
         int k = n- 1;
@@ -103,7 +141,8 @@ public class Intermeddiate {
     public static void main(String[] args) {
         int[] arr = {1,9,9,9};
         int[][] arr2d = {{1,2,3}, {4,5,6}, {7,8,9}};
-        wareFormCols(arr2d);
+        int[][] arr2 = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
+        spiralForm(arr2);
 
 //        for(int ele: plusOne(arr)) {
 //            System.out.println(ele);

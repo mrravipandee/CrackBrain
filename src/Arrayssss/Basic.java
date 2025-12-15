@@ -5,6 +5,24 @@ import java.util.Arrays;
 public class Basic {
 
 
+    // 34. Find First and Last Position of Element in Sorted Array
+    static int[] searchRange(int[] nums, int target) {
+        int n = nums.length;
+        int[] ans = {-1,-1};
+
+        int j = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == target) {
+                // first occurrer
+                if (ans[0] == -1) {
+                    ans[0] = i;
+                }
+                ans[1] = i; // last occurres
+            }
+        }
+
+        return ans;
+    }
 
     // 268. missing number from array
     static int missingNumber(int[] nums) {
@@ -244,8 +262,10 @@ public class Basic {
     public static void main(String[] args) {
         int[] arr = {0,1,2,0,1,2,1,2,0,0};
         int[] arr2 = {12, 8, 41, 37, 2, 49, 16, 28, 21};
-        int[] nums = {9,6,4,2,3,5,7,0,1};
+        int[] nums = {1,2,5,3,5};
 
-        System.out.println(missingNumber(nums));
+        for(int ele: searchRange(nums, 5)) {
+            System.out.println(ele);
+        }
     }
 }
