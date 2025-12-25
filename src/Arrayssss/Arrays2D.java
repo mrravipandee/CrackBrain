@@ -5,6 +5,31 @@ import java.util.Scanner;
 
 public class Arrays2D {
 
+    static void matrixSum(int[][] nums) {
+        int row = nums.length;
+        int col = nums[0].length;
+        int sum = 0;
+
+        // sort each rows
+        for (int i = 0; i < row; i++) {
+            Arrays.sort(nums[i]);
+        }
+
+        // loop for find max in col
+        for (int j = 0; j < col; j++) {
+
+            int max = 0;
+            // find max in this col
+            for (int i = 0; i < row; i++) {
+                max = Math.max(max, nums[i][j]);
+            }
+
+            sum += max;
+        }
+
+        System.out.println(sum);
+    }
+
     static void rotate90deg(int[][] arr) {
 
         int m = arr.length, n = arr[0].length;
@@ -224,8 +249,8 @@ public class Arrays2D {
     }
 
     public static void main(String[] args) {
-        int[][] arr2d = {{1,2,7},{3,4,8},{5,6,9}};
+        int[][] arr2d = {{7,2,1},{6,4,2},{6,5,3},{3,2,1}};
         int[][] arr2d2 = {{1,12},{3,4},{5,6}};
-        rotate90deg(arr2d);
+        matrixSum(arr2d);
     }
 }

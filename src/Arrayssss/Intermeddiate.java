@@ -95,25 +95,6 @@ public class Intermeddiate {
         }
     }
 
-    static void reverse(int[][] arr) {
-        int m = arr.length;
-        int n = arr[0].length;
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                int l = 0, r = m - 1;
-
-                while (l < r) {
-                    int temp = arr[i][l];
-                    arr[i][l] = arr[i][r];
-                    arr[i][r] = temp;
-                    l++;
-                    r--;
-                }
-            }
-        }
-    }
-
     // q. plus one [66. leetcode]
     static int[] plusOne(int[] digits) {
 
