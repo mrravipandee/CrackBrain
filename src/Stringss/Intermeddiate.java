@@ -5,6 +5,26 @@ import java.util.Map;
 
 public class Intermeddiate {
 
+    // 79. Word Search
+    public static void exist(char[][] board, String word) {
+        char[] words = word.toCharArray();
+        int k = 0;
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == words[k]) {
+                    k++;
+                }
+            }
+        }
+
+        if (k == words.length - 1) {
+            System.out.println(k);
+        }
+
+        System.out.println(k+" Out side"+word.length());
+    }
+
     // 1. Roman to int
     static void romanToInt(String s) {
 
@@ -40,6 +60,8 @@ public class Intermeddiate {
     }
 
     public static void main(String[] args) {
-        romanToInt("VVL");
+        char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+        String word = "SEE";
+        exist(board, word);
     }
 }

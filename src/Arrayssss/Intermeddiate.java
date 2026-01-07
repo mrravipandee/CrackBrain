@@ -1,6 +1,22 @@
 package Arrayssss;
 
+import java.util.Arrays;
+
 public class Intermeddiate {
+
+    // 977. Squares of a Sorted Array
+    static int[] sortedSquares(int[] nums) {
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+
+            nums[i] = (int) Math.pow(num, 2);
+        }
+
+        Arrays.sort(nums);
+
+        return nums;
+    }
 
     // print matrix in spiral form
     static void spiralForm(int[][] arr) {
@@ -120,14 +136,13 @@ public class Intermeddiate {
 
 
     public static void main(String[] args) {
-        int[] arr = {1,9,9,9};
+        int[] arr = {-4,-1,0,3,10};
         int[][] arr2d = {{1,2,3}, {4,5,6}, {7,8,9}};
         int[][] arr2 = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
-        spiralForm(arr2);
 
-//        for(int ele: plusOne(arr)) {
-//            System.out.println(ele);
-//        }
+        for(int ele: sortedSquares(arr)) {
+            System.out.println(ele);
+        }
     }
 
 }
