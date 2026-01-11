@@ -5,6 +5,31 @@ import java.util.Map;
 
 public class Intermeddiate {
 
+    // from string find maximum char
+    public static void maxChar(String string) {
+        // 1. char frequiency
+        int[] freq = new int[26];
+
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+            int ind = (char)(ch - 97);
+            freq[ind]++;
+        }
+
+        int maxFreq = -1; // because freq value start from zero
+
+        for (int i = 0; i < freq.length; i++) {
+            maxFreq = Math.max(maxFreq, freq[i]);
+        }
+
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] == maxFreq) {
+                char ch = (char)(i+97);
+                System.out.println(ch+" "+maxFreq);
+            }
+        }
+    }
+
     // 79. Word Search
     public static void exist(char[][] board, String word) {
         char[] words = word.toCharArray();
@@ -61,7 +86,7 @@ public class Intermeddiate {
 
     public static void main(String[] args) {
         char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-        String word = "SEE";
-        exist(board, word);
+        String word = "RaviPandey";
+        maxChar(word);
     }
 }
