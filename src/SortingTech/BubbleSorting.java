@@ -6,6 +6,15 @@ public class BubbleSorting {
 
 
 
+    // question to sort elements in decresing order
+    static void bubbleDec(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) { // passes how many time will be come
+
+        }
+    }
+
 
     // basic one
     static void BubbleSort(int[] arr) {
@@ -36,6 +45,7 @@ public class BubbleSorting {
 
     public static void main(String[] args) {
         int arr[] = {5,1,3,2,4};
-        BubbleSort(arr);
+        bubbleDec(arr);
+        System.out.println(Arrays.toString(arr));;
     }
 }
