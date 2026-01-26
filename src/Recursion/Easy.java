@@ -1,95 +1,95 @@
 package Recursion;
 
+import java.util.Arrays;
+
 public class Easy {
 
-    // 8. recursion
-    static boolean isPalindromeRec(String str, int start, int end) {
-        if (start >= end) { // base case
-            return true;
-        }
+    // 8. Fibonacci series
+    static int fibonacciNum(int n) {
+        if (n <= 1) return n;
 
-        if(str.charAt(start) != str.charAt(end)) return false;
-
-        return isPalindromeRec(str, start+1, end-1);
+        return fibonacciNum(n-1) + fibonacciNum(n-2);
     }
 
-    // 7. Reverse an array
-    static void reverse(int[] arr, int start, int end) {
-        if (start >= end) {
-            return;
-        }
+    // 7. check string is a palindrome
+    static boolean isPalindrome(String str, int left, int right) {
+        if (left >= right) return true;
 
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
+        // string to character array
+        char[] charArr = str.toCharArray();
 
-        reverse(arr, start + 1, end - 1);
+        char temp = charArr[left];
+        charArr[left] = charArr[right];
+        charArr[right] = temp;
+
+        String modified = new String(charArr);
+
+        if (!modified.equals(str)) return false;
+
+        return true;
     }
 
-    // 6. Factorial of N numbers
-    static int factorial(int num) {
-        if (num == 0 || num == 1) {
-            return 1;
-        }
+    // 6. reverse an array
+    static void reverseArray(int[] arr, int l, int r) {
+        if (l >= r) return;
 
-        // multiply the value and num - 1 to go way decrision order
-        return num * factorial(num-1);
+        // swap elements
+        int temp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = temp;
+
+        reverseArray(arr, l+1, r-1);
     }
 
-    // 5. Sum of first N numbers eg. n is 3 then ans is 6.... 1 + 2 + 3 = 6
-    static int sumofN(int n) {
-        if (n == 0) {
-            return 0;
-        }
+    // 5. Factorial of N numbers
+    static int factN(int n) {
+        if (n == 0 || n == 1) return 1;
+        if (n <= 0) return 0;
 
-        n = n + sumofN(n - 1);
-        return n;
+        return n * factN(n-1);
     }
 
-    // 4. print 1 to n using backtracking
-    static void print1toN(int i, int n) {
-        if (n < 1) {
-            return;
-        }
+    // 4. sum of first n numbers
+    static int sumN(int n) {
+        if (n == 0) return 0;
 
-        print1toN(i, n-1);
+        return n + sumN(n-1);
+    }
+
+    // 3. print n to 1
+    static void numNto1(int n) {
+        if (n <= 0) return;
+
+        System.out.println(n);
+
+        numNto1(n-1);
+    }
+
+    // 2. print 1 to n
+    static void num1toN(int n) {
+        if (n <= 0) return;
+
+        num1toN(n-1);
         System.out.println(n);
     }
 
-    // 3. print in terms of n to 1
-    static void printNto1(int n) {
-        if (n < 1) {
-            return;
-        }
+    // 1. print name n times
+    static void names(int n) {
+        if (n <= 0) return; // base case
 
-        System.out.println(n);
-        n--;
-        printNto1(n);
-    }
+        System.out.println("Ravi");
 
-    // 2. print name n times
-    static void printName(int n) {
-        if (n < 1) {
-            return;
-        }
-
-        System.out.println("Ravii");
-        n--;
-        printName(n);
-    }
-
-     // 1. print 1 to 5
-    static void printNum(int num) {
-        if (num > 5) {
-            return;
-        }
-
-        System.out.println(num);
-        num++;
-        printNum(num);
+        names(n-1);
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindromeRec("rar", 0, "rar".length() - 1));
+
+        int n = 5;
+
+        for (int i = 0; i < n; i++) {
+            System.out.println(fibonacciNum(i));
+        }
+
+
     }
 }
